@@ -1,51 +1,92 @@
-// Lógica del Juego de Clics
-const juegoStartBtn = document.getElementById('juego-start-btn');
-const juegoClickBtn = document.getElementById('juego-click-btn');
-const juegoTiempoEl = document.getElementById('juego-tiempo');
-const juegoPuntajeEl = document.getElementById('juego-puntaje');
-const juegoResultadoEl = document.getElementById('juego-resultado');
+document.addEventListener('DOMContentLoaded', () => {
+  // Lógica del Juego de Clics (mejorada)
+  const juegoStartBtn = document.getElementById('juego-start-btn');
+  const juegoClickBtn = document.getElementById('juego-click-btn');
+  const juegoTiempoEl = document.getElementById('juego-tiempo');
+  const juegoPuntajeEl = document.getElementById('juego-puntaje');
+  const juegoResultadoEl = document.getElementById('juego-resultado');
 
-let puntaje;
-let tiempoRestante;
-let temporizador;
+  let puntaje = 0;
+  let tiempoRestante = 0;
+  let temporizador = null;
 
-if (juegoStartBtn) {
+  function initUI() {
+    if (juegoClickBtn) {
+      juegoClickBtn.disabled = true;
+      juegoClickBtn.style.display = 'none';
+    }
+    if (juegoResultadoEl) {
+      juegoResultadoEl.style.display = 'none';
+      juegoResultadoEl.textContent = '';
+      juegoResultadoEl.setAttribute('aria-live', 'polite');
+    }
+    if (juegoPuntajeEl) juegoPuntajeEl.textContent = puntaje;
+    if (juegoTiempoEl) juegoTiempoEl.textContent = tiempoRestante;
+  }
+
+  if (juegoStartBtn) {
     juegoStartBtn.addEventListener('click', iniciarJuego);
-}
+  }
 
-if (juegoClickBtn) {
+  if (juegoClickBtn) {
     juegoClickBtn.addEventListener('click', () => {
-        puntaje++;
-        juegoPuntajeEl.textContent = puntaje;
+      puntaje++;
+      if (juegoPuntajeEl) juegoPuntajeEl.textContent = puntaje;
     });
-}
+  }
 
-function iniciarJuego() {
+  function iniciarJuego() {
+    if (temporizador) {
+      clearInterval(temporizador);
+      temporizador = null;
+    }
+
     puntaje = 0;
     tiempoRestante = 10;
-    juegoPuntajeEl.textContent = puntaje;
-    juegoTiempoEl.textContent = tiempoRestante;
+    if (juegoPuntajeEl) juegoPuntajeEl.textContent = puntaje;
+    if (juegoTiempoEl) juegoTiempoEl.textContent = tiempoRestante;
 
-    juegoStartBtn.style.display = 'none';
-    juegoResultadoEl.style.display = 'none';
-    juegoClickBtn.style.display = 'inline-block';
-    juegoClickBtn.disabled = false;
+    if (juegoStartBtn) juegoStartBtn.style.display = 'none';
+    if (juegoResultadoEl) {
+      juegoResultadoEl.style.display = 'none';
+      juegoResultadoEl.textContent = '';
+    }
+    if (juegoClickBtn) {
+      juegoClickBtn.style.display = 'inline-block';
+      juegoClickBtn.disabled = false;
+      juegoClickBtn.focus();
+    }
 
     temporizador = setInterval(() => {
-        tiempoRestante--;
-        juegoTiempoEl.textContent = tiempoRestante;
-        if (tiempoRestante <= 0) {
-            finalizarJuego();
-        }
+      tiempoRestante--;
+      if (juegoTiempoEl) juegoTiempoEl.textContent = tiempoRestante;
+      if (tiempoRestante <= 0) {
+        finalizarJuego();
+      }
     }, 1000);
-}
+  }
 
-function finalizarJuego() {
-    clearInterval(temporizador);
-    juegoClickBtn.disabled = true;
-    juegoClickBtn.style.display = 'none';
-    juegoStartBtn.style.display = 'inline-block';
-    juegoStartBtn.textContent = 'Jugar de Nuevo';
-    juegoResultadoEl.textContent = `¡Tu puntaje final es ${puntaje}!`;
-    juegoResultadoEl.style.display = 'block';
-}
+  function finalizarJuego() {
+    if (temporizador) {
+      clearInterval(temporizador);
+      temporizador = null;
+    }
+
+    if (juegoClickBtn) {
+      juegoClickBtn.disabled = true;
+      juegoClickBtn.style.display = 'none';
+    }
+    if (juegoStartBtn) {
+      juegoStartBtn.style.display = 'inline-block';
+      juegoStartBtn.textContent = 'Jugar de Nuevo';
+      juegoStartBtn.focus();
+    }
+    if (juegoTiempoEl) juegoTiempoEl.textContent = 0;
+    if (juegoResultadoEl) {
+      juegoResultadoEl.textContent = `¡Tu puntaje final es ${puntaje}!`;
+      juegoResultadoEl.style.display = 'block';
+    }
+  }
+
+  initUI();
+});
