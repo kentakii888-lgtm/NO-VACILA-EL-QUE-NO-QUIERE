@@ -21,7 +21,7 @@ const personas = [
 		nombre: "Guido",
 		descripcion: "Estudiante el secundario. amante del vaper y de culear.",
 		foto: "https://randomuser.me/api/portraits/men/23.jpg",
-		instagram: "https://instagram.com/guido"
+		instagram: "https://www.instagram.com/guidoo.raimundo/"
 	},
 	{
 		nombre: "Pota",

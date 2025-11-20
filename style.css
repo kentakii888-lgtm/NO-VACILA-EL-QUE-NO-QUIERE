@@ -457,3 +457,217 @@ footer a:hover {
     flex-direction: column;
     justify-content: center;
 }
+
+/* --- Estilos para el Juego --- */
+.juego-container {
+    text-align: center;
+    padding: 20px;
+    background: #b71c1c;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px #3a0000;
+}
+
+.quiz-pregunta {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #fff;
+    margin: 20px 0;
+    min-height: 60px;
+}
+
+.quiz-opciones {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#juego-start-btn, #juego-click-btn {
+.quiz-opcion-btn, #quiz-start-btn {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    background: #d32f2f;
+    color: #fff;
+    box-shadow: 0 4px 16px #3a0000, 0 1.5px 0 #ff5252 inset;
+}
+
+#juego-start-btn:hover, #juego-click-btn:hover {
+.quiz-opcion-btn:hover, #quiz-start-btn:hover {
+    background: #ff5252;
+    color: #b71c1c;
+    box-shadow: 0 8px 32px #ff5252, 0 2px 0 #fff inset;
+    transform: translateY(-2px);
+}
+
+.quiz-opcion-btn.correcto { background: #4CAF50; color: white; }
+.quiz-opcion-btn.incorrecto { background: #f44336; color: white; }
+.quiz-opcion-btn:disabled { cursor: not-allowed; }
+}
+
+.juego-resultado {
+    margin-top: 20px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* --- Estilos para Celular (Responsive) --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Ajuste base para mejor lectura */
+    }
+
+    header {
+        font-size: 1.5em;
+        padding: 18px 0 10px 0;
+        letter-spacing: 1px;
+    }
+
+    header img {
+        height: 40px !important; /* Reducir tamaño del logo */
+    }
+
+    nav {
+        padding: 0;
+    }
+
+    nav a {
+        display: block; /* Apilar enlaces */
+        padding: 12px 0;
+        margin: 0;
+        border-bottom: 1px solid #ff5252;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 20px 15px;
+        border-radius: 0; /* Ocupar todo el ancho */
+    }
+
+    .main-title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.3em;
+    }
+
+    .videos-grid,
+    .frases-anecdotas-grid {
+        flex-direction: column; /* Apilar elementos */
+        align-items: center;
+    }
+
+    .videos-grid > div,
+    .frase,
+    .anecdota {
+        flex: 1 1 100%; /* Ocupar todo el ancho */
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .timeline {
+        margin-left: 10px;
+        border-left-width: 3px;
+    }
+
+    .timeline li {
+        padding-left: 20px;
+    }
+
+    .timeline li:before {
+        left: -8px;
+        width: 12px;
+        height: 12px;
+    }
+
+    #juego-start-btn, #juego-click-btn {
+    .quiz-opcion-btn, #quiz-start-btn {
+        font-size: 1.2em;
+        padding: 12px 24px;
+    }
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Ajuste base para mejor lectura */
+    }
+
+    header {
+        font-size: 1.5em;
+        padding: 18px 0 10px 0;
+        letter-spacing: 1px;
+    }
+
+    header img {
+        height: 40px !important; /* Reducir tamaño del logo */
+    }
+
+    nav {
+        padding: 0;
+    }
+
+    nav a {
+        display: block; /* Apilar enlaces */
+        padding: 12px 0;
+        margin: 0;
+        border-bottom: 1px solid #ff5252;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 20px 15px;
+        border-radius: 0; /* Ocupar todo el ancho */
+    }
+
+    .main-title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.3em;
+    }
+
+    .videos-grid,
+    .frases-anecdotas-grid {
+        flex-direction: column; /* Apilar elementos */
+        align-items: center;
+    }
+
+    .videos-grid > div,
+    .frase,
+    .anecdota {
+        flex: 1 1 100%; /* Ocupar todo el ancho */
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .timeline {
+        margin-left: 10px;
+        border-left-width: 3px;
+    }
+
+    .timeline li {
+        padding-left: 20px;
+    }
+
+    .timeline li:before {
+        left: -8px;
+        width: 12px;
+        height: 12px;
+    }
+}
