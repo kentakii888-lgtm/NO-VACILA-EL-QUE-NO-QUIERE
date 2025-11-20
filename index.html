@@ -66,21 +66,48 @@
     </div>
     <section id="galeria" class="container">
         <h2 class="subtitle">Galería de Fotos</h2>
-        <div class="gallery-grid">
-            <img src="img/patri3.jpg" alt="Foto 1" class="gallery-thumb">
-            <img src="img/coco2.jpg" alt="Foto 2" class="gallery-thumb">
-            <img src="img/patri2.jpg" alt="Foto 3" class="gallery-thumb">
-            <img src="img/eze3.jpg" alt="Foto 4" class="gallery-thumb">
-            <img src="img/eze2.jpg" alt="Foto 5" class="gallery-thumb">
-            <img src="img/pota3.jpg" alt="foto 6" class="gallery-thumb">
-            <img src="img/pota2.jpg" alt="foto 7" class="gallery-thumb">
-            <img src="img/coco3.jpg" alt="foto 8" class="gallery-thumb">
-        </div>
-        <div id="gallery-modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <img id="gallery-modal-img" src="" alt="Foto ampliada" style="max-width:100%; border-radius:12px;">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="img/patri3.jpg" alt="Foto 1">
             </div>
+            <div class="mySlides fade">
+                <img src="img/coco2.jpg" alt="Foto 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/patri2.jpg" alt="Foto 3">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/eze3.jpg" alt="Foto 4">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/eze2.jpg" alt="Foto 5">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/pota3.jpg" alt="foto 6">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/pota2.jpg" alt="foto 7">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/coco3.jpg" alt="foto 8">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/eze4.jpg" alt="foto 9">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/patri4.jpg" alt="foto 10">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/pota4.jpg" alt="foto 11">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/pota5.jpg" alt="foto 12">
+            </div>
+            <div class="mySlides fade">
+                <img src="img/patriypota.jpg" alt="foto 13">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
     </section>
     <section id="eventos" class="container">
@@ -154,5 +181,27 @@
         &copy; 2025 NO VACILA EL QUE NO QUIERE. Todos los derechos reservados. <a href="https://youtu.be/cZy9f2OuKMc">Política de privacidad</a>
     </footer>
     <script src="script.js"></script>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Controles de Siguiente/Anterior
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            if (slides.length > 0) {
+                slides[slideIndex-1].style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -114,15 +114,47 @@ const muroNombre = document.getElementById('muro-nombre');
 const muroMensaje = document.getElementById('muro-mensaje');
 const muroLista = document.getElementById('muro-lista');
 
+// Clave para guardar los mensajes en localStorage
+const MENSAJES_STORAGE_KEY = 'mensajesDelMuro';
+
+// Función para cargar los mensajes guardados al iniciar la página
+function cargarMensajesGuardados() {
+    const mensajesGuardados = localStorage.getItem(MENSAJES_STORAGE_KEY);
+    if (mensajesGuardados) {
+        const mensajes = JSON.parse(mensajesGuardados);
+        muroLista.innerHTML = ''; // Limpiar la lista antes de añadir los mensajes
+        mensajes.forEach(mensaje => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${mensaje.nombre}:</strong> ${mensaje.texto}`;
+            muroLista.prepend(li); // Usamos prepend para que los más nuevos aparezcan arriba
+        });
+    }
+}
+
 if (muroForm && muroNombre && muroMensaje && muroLista) {
+    // Cargar los mensajes existentes cuando la página se carga
+    document.addEventListener('DOMContentLoaded', cargarMensajesGuardados);
+
     muroForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const nombre = muroNombre.value.trim();
         const mensaje = muroMensaje.value.trim();
+
         if (nombre && mensaje) {
+            // Obtener mensajes actuales, o un array vacío si no hay
+            const mensajesGuardados = localStorage.getItem(MENSAJES_STORAGE_KEY);
+            let mensajes = mensajesGuardados ? JSON.parse(mensajesGuardados) : [];
+            
+            // Añadir el nuevo mensaje y guardarlo en localStorage
+            mensajes.push({ nombre: nombre, texto: mensaje });
+            localStorage.setItem(MENSAJES_STORAGE_KEY, JSON.stringify(mensajes));
+
+            // Crear y añadir el nuevo mensaje a la lista visible
             const li = document.createElement('li');
             li.innerHTML = `<strong>${nombre}:</strong> ${mensaje}`;
             muroLista.prepend(li);
+
+            // Limpiar los campos del formulario
             muroNombre.value = '';
             muroMensaje.value = '';
         }

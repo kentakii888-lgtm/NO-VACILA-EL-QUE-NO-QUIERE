@@ -258,6 +258,7 @@ footer a:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 24px #ff5252;
 }
+
 .modal-content img {
     max-width: 100%;
     border-radius: 12px;
@@ -483,8 +484,7 @@ footer a:hover {
     gap: 12px;
     margin-top: 20px;
 }
-
-#juego-start-btn, #juego-click-btn {
+/* Estilos compartidos para botones de quiz */
 .quiz-opcion-btn, #quiz-start-btn {
     padding: 15px 30px;
     font-size: 1.5em;
@@ -499,7 +499,6 @@ footer a:hover {
     box-shadow: 0 4px 16px #3a0000, 0 1.5px 0 #ff5252 inset;
 }
 
-#juego-start-btn:hover, #juego-click-btn:hover {
 .quiz-opcion-btn:hover, #quiz-start-btn:hover {
     background: #ff5252;
     color: #b71c1c;
@@ -510,7 +509,6 @@ footer a:hover {
 .quiz-opcion-btn.correcto { background: #4CAF50; color: white; }
 .quiz-opcion-btn.incorrecto { background: #f44336; color: white; }
 .quiz-opcion-btn:disabled { cursor: not-allowed; }
-}
 
 .juego-resultado {
     margin-top: 20px;
@@ -593,81 +591,70 @@ footer a:hover {
         height: 12px;
     }
 
-    #juego-start-btn, #juego-click-btn {
     .quiz-opcion-btn, #quiz-start-btn {
         font-size: 1.2em;
         padding: 12px 24px;
     }
+}
+
+/* Estilos para el carrusel */
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+/* Botones de Anterior y Siguiente */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Efecto de fundido */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} to {opacity: 1}
+}
+
+/* Ajustes responsivos para el carrusel */
 @media (max-width: 768px) {
-    body {
-        font-size: 15px; /* Ajuste base para mejor lectura */
-    }
-
-    header {
-        font-size: 1.5em;
-        padding: 18px 0 10px 0;
-        letter-spacing: 1px;
-    }
-
-    header img {
-        height: 40px !important; /* Reducir tamaño del logo */
-    }
-
-    nav {
-        padding: 0;
-    }
-
-    nav a {
-        display: block; /* Apilar enlaces */
-        padding: 12px 0;
-        margin: 0;
-        border-bottom: 1px solid #ff5252;
-    }
-
-    nav a:last-child {
-        border-bottom: none;
-    }
-
-    .container {
-        margin: 20px auto;
-        padding: 20px 15px;
-        border-radius: 0; /* Ocupar todo el ancho */
-    }
-
-    .main-title {
-        font-size: 2em;
-    }
-
-    .subtitle {
-        font-size: 1.3em;
-    }
-
-    .videos-grid,
-    .frases-anecdotas-grid {
-        flex-direction: column; /* Apilar elementos */
-        align-items: center;
-    }
-
-    .videos-grid > div,
-    .frase,
-    .anecdota {
-        flex: 1 1 100%; /* Ocupar todo el ancho */
-        max-width: 100%;
-        margin-top: 0;
-    }
-
-    .timeline {
-        margin-left: 10px;
-        border-left-width: 3px;
-    }
-
-    .timeline li {
-        padding-left: 20px;
-    }
-
-    .timeline li:before {
-        left: -8px;
-        width: 12px;
-        height: 12px;
+    .slideshow-container {
+        max-width: 95%;
     }
 }
