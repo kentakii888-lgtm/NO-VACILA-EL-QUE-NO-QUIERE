@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO VACILA EL QUE NO QUIERE</title>
+</head>
+<body>
+    <header>
+        <img src="img/logito (1).jpg" alt="Logo" style="height: 50px; vertical-align: middle;">
+        NO VACILA EL QUE NO QUIERE
+        <img src="img/logito (1).jpg" alt="Logo" style="height: 50px; vertical-align: middle;">
+    </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="perfiles.html">Perfiles</a>
+    </nav>
+    <div id="inicio" class="container">
+        <h1 class="main-title">Bienvenidos</h1>
+        <p class="intro">Somos el grupo "No vacila el que no quiere", un equipo apasionado por la creatividad, la innovación y el trabajo en equipo. Nos dedicamos a crear experiencias únicas y a superar cualquier reto que se nos presente.</p>
+    </div>
+    <div id="ubicacion" class="container">
+        <h2 class="subtitle">Ubicación</h2>
+        <p class="location">La ciudad de las flores, Provincia de Buenos Aires</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13135.634970123456!2d-58.8923456!3d-34.5748392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd123456789ab%3A0x123456789abcdef!2sLa%20Ciudad%20de%20Las%20Flores%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <div id="recuerdos" class="container">
+        <h2 class="subtitle">Recuerdos</h2>
+        <p class="intro">En esta sección compartiremos fotos, anécdotas y momentos especiales del grupo "No vacila el que no quiere". ¡Próximamente más recuerdos!</p>
+        <div class="videos-grid" style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start;">
+            <div style="flex: 1 1 350px; max-width: 350px;">
+                <video controls width="100%" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+                    <source src="img/Video de WhatsApp 2025-11-16 a las 14.29.41_23a663fd.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+            <div style="flex: 1 1 300px; max-width: 400px; background:#fff3e0; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding: 18px 22px; margin-top: 20px; color:#333;">
+                <h3 style="color:#ff6f00; margin-top:0;">¿Qué pasó en este video?</h3>
+                <p>
+                    En este video, el grupo "No vacila el que no quiere" se reunió para compartir una tarde inolvidable llena de risas, anécdotas y buena compañía. Fue un momento especial donde todos participaron, se grabaron recuerdos y se fortaleció la amistad que nos une. ¡Un recuerdo que siempre quedará en nuestra memoria!
+                </p>
+            </div>
+            <!-- Boceto para otro video -->
+            <div class="video-placeholder" style="flex: 1 1 350px; max-width:350px; min-height:200px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.12); background:#ffe0b2; display:flex; align-items:center; justify-content:center; color:#ff6f00; font-size:1.2em;">
+                Próximamente otro video...
+            </div>
+        </div>
+    </div>
+    <section id="galeria" class="container">
+        <h2 class="subtitle">Galería de Fotos</h2>
+        <div class="gallery-grid">
+            <img src="img/patri3.jpg" alt="Foto 1" class="gallery-thumb">
+            <img src="img/coco2.jpg" alt="Foto 2" class="gallery-thumb">
+            <img src="img/patri2.jpg" alt="Foto 3" class="gallery-thumb">
+            <img src="img/eze3.jpg" alt="Foto 4" class="gallery-thumb">
+        </div>
+        <div id="gallery-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <img id="gallery-modal-img" src="" alt="Foto ampliada" style="max-width:100%; border-radius:12px;">
+            </div>
+        </div>
+    </section>
+    <section id="eventos" class="container">
+        <h2 class="subtitle">Próximos Eventos</h2>
+        <ul class="event-list">
+            <li>
+                <strong>Juntadita</strong> - 21 de Noviembre, 2025 - 21:00 hs<br>
+                Lugar: Casa de patri
+            </li>
+            <li>
+                <strong>Campeonato de Truco</strong> - 20 de diciembre, 2025 - 18:00 hs<br>
+                Lugar: Club Social
+            </li>
+            <li>
+                <strong>Picnic en la Plaza</strong> - 10 de enero, 2026 - 16:00 hs<br>
+                Lugar: Plaza Principal
+            </li>
+        </ul>
+    </section>
+    <section id="muro" class="container">
+        <h2 class="subtitle">Muro de Mensajes</h2>
+        <form id="muro-form" class="muro-form">
+            <input type="text" id="muro-nombre" placeholder="Tu nombre" required maxlength="20">
+            <textarea id="muro-mensaje" placeholder="Escribe tu mensaje..." required maxlength="120"></textarea>
+            <button type="submit">Publicar</button>
+        </form>
+        <ul id="muro-lista" class="muro-lista"></ul>
+    </section>
+    <section id="hitos" class="container">
+        <h2 class="subtitle">Línea de Tiempo de Hitos</h2>
+        <ul class="timeline">
+            <li>
+                <span class="timeline-date">Marzo 2023</span>
+                <span class="timeline-event">Se forma el grupo "No vacila el que no quiere" en una juntada histórica.</span>
+            </li>
+            <li>
+                <span class="timeline-date">Julio 2023</span>
+                <span class="timeline-event">Primer asado oficial del grupo.</span>
+            </li>
+            <li>
+                <span class="timeline-date">Diciembre 2023</span>
+                <span class="timeline-event">Viaje juntos a la costa.</span>
+            </li>
+            <li>
+                <span class="timeline-date">Abril 2024</span>
+                <span class="timeline-event">Campeonato de truco: ¡primer trofeo del grupo!</span>
+            </li>
+            <li>
+                <span class="timeline-date">Noviembre 2025</span>
+                <span class="timeline-event">Lanzamiento de la web oficial del grupo.</span>
+            </li>
+        </ul>
+    </section>
+    <section id="frases-anecdotas" class="container">
+        <h2 class="subtitle">Frases Célebres y Anécdotas</h2>
+        <div class="frases-anecdotas-grid">
+            <blockquote class="frase">
+                "No vacila el que no quiere."<br>
+                <span class="autor">- El grupo, en cada juntada</span>
+            </blockquote>
+            <blockquote class="frase">
+                "El asado se hace con amigos, no con carbón."<br>
+                <span class="autor">- Coco, primer asado</span>
+            </blockquote>
+            <blockquote class="frase">
+                "¿Quién trajo la baraja?"<br>
+                <span class="autor">- Laureee, campeonato de truco</span>
+            </blockquote>
+            <div class="anecdota">
+                <strong>Anécdota:</strong> Una vez, en pleno picnic, una tormenta nos obligó a refugiarnos bajo una glorieta. Terminamos cantando y bailando bajo la lluvia, ¡y fue uno de los mejores recuerdos del grupo!
+            </div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 NO VACILA EL QUE NO QUIERE. Todos los derechos reservados. <a href="https://youtu.be/cZy9f2OuKMc">Política de privacidad</a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
