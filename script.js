@@ -139,6 +139,13 @@ if (muroForm && muroNombre && muroMensaje && muroLista) {
         e.preventDefault();
         const nombre = muroNombre.value.trim();
         const mensaje = muroMensaje.value.trim();
+        const honeypot = document.querySelector('#muro-form .honeypot-field').value;
+
+        // Verificación del campo Honeypot. Si tiene valor, es probable que sea un bot.
+        if (honeypot) {
+            console.log("Detección de spam (Honeypot). Mensaje bloqueado.");
+            return; // No procesar el envío
+        }
 
         if (nombre && mensaje) {
             // Obtener mensajes actuales, o un array vacío si no hay
@@ -177,3 +184,30 @@ if (perfilesLista) {
         perfilesLista.appendChild(card);
     });
 }
+
+// --- LÓGICA PARA MODO OSCURO ---
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // Función para aplicar el tema
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeToggle.checked = false;
+        }
+    };
+
+    // Cargar el tema guardado al iniciar
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    // Evento para cambiar el tema
+    themeToggle.addEventListener('change', function() {
+        const newTheme = this.checked ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
+});
