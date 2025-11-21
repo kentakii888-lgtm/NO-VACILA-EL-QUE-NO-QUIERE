@@ -40,6 +40,33 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* --- ESTILOS DE PRELOADER (SPINNER) --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    border: 8px solid var(--color-border);
+    border-top: 8px solid var(--color-main-red);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Contenedor principal */
 .container {
     background-color: var(--color-container-bg);
